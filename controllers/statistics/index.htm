@@ -47,7 +47,7 @@
             <div class="statlistbox">
 
                 <br>
-                <?php foreach(array_reverse($byMonthDataset) as $key => $value): ?>
+                <?php foreach($byMonthDataset as $key => $value): ?>
                     <div class=" col-md-6 col-sm-6"><?= $value->monthname . ' ' . $value->year ?></div>
                     <div class="text-right col-md-6 col-sm-6"><?= $value->data ?></div>
                     <div class="clearfix"></div>
