@@ -75,7 +75,30 @@ class MallStats extends OrdersStats
         return implode(',', $result);
     }
 
-    public function byMonth(): array
+    public function customersByMonth(): array
+    {
+        $dataset = DB::table($this->ordersTable)
+                ->whereNull('deleted_at')
+                ->select(
+                    DB::raw('year(created_at) as `year`'),
+                    DB::raw('month(created_at) as `month`'),
+                    DB::raw('monthname(created_at) as `monthname`'),
+                    DB::raw('count(DISTINCT customer_id) as `data`')
+                )
+                ->whereYear("created_at", date("Y") )
+                ->groupBy("year", "month", "monthname" )
+                ->orderBy("year", "ASC")
+                ->orderBy("month", "ASC")
+                ->get()
+                ->toArray();
+
+        return [
+            'byMonthMaxCount'   => max(array_column($dataset, 'data')),
+            'dataset'           => $dataset
+        ];
+    }
+
+    public function ordersByMonth(): array
     {
         $dataset = DB::table($this->ordersTable)
                 ->whereNull('deleted_at')

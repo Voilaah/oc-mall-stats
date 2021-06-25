@@ -14,5 +14,6 @@
         'sales_average' => 'Average Sales',
         'nb_customers' => 'Total payee / Total customers',
         'nb_customers_comment' => 'Customers who made at least one purchase',
+        'nb_unique_customers_per_month' => '(Unique) Customers by month (for :year)',
     ],
 ];

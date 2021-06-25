@@ -10,3 +10,5 @@
     - Update composer name to make the plugin public
 1.0.6:
     - Adding average sales, total payee
+1.0.7:
+    - Adding Unique Customers by month

@@ -7,11 +7,15 @@
 <?= $this->makePartial('~/plugins/offline/mall/controllers/orders/_orders_scoreboard.htm', ['stats' => $stats, 'money' => $money]); ?>
 
 <?php
-    $byMonth = $mallstats->byMonth();
+    $byMonth = $mallstats->ordersByMonth();
     $byMonthMaxCount = $byMonth['byMonthMaxCount'];
     $byMonthDataset = $byMonth['dataset'];
 
     $avgData = $mallstats->avgData();
+
+    $customersByMonth = $mallstats->customersByMonth();
+    $customersByMonthMaxCount = $customersByMonth['byMonthMaxCount'];
+    $customersByMonthDataset = $customersByMonth['dataset'];
 ?>
 <br>
 <br>
@@ -59,41 +63,78 @@
     </div>
     <br>
     <hr>
-    <div class="title-value">
-    <h4><?= e(trans('voilaah.mallstats::lang.titles.sales_period_month', ['year'=> date("Y")] )) ?></h4>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="statlistbox">
-
-                <br>
-                <?php foreach($byMonthDataset as $key => $value): ?>
-                    <div class=" col-md-6 col-sm-6"><?= $value->monthname . ' ' . $value->year ?></div>
-                    <div class="text-right col-md-6 col-sm-6"><?= $value->data ?></div>
-                    <div class="clearfix"></div>
-                <?php endforeach; ?>
-                <br>
-            </div>
+        <div class="title-value">
+        <h4><?= e(trans('voilaah.mallstats::lang.titles.sales_period_month', ['year'=> date("Y")] )) ?></h4>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="statlistbox">
 
-        <div class="col-md-9">
-
-            <div
-                class="control-chart wrap-legend"
-                data-control="chart-bar"
-                data-height="<?= $byMonthMaxCount ?>"
-                data-full-width="1">
-                <ul>
+                    <br>
                     <?php foreach($byMonthDataset as $key => $value): ?>
-                        <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>
+                        <div class=" col-md-6 col-sm-6"><?= $value->monthname . ' ' . $value->year ?></div>
+                        <div class="text-right col-md-6 col-sm-6"><?= $value->data ?></div>
+                        <div class="clearfix"></div>
                     <?php endforeach; ?>
-                </ul>
+                    <br>
+                </div>
             </div>
-        </div>
 
-    </div>
-    <br>
-    <hr>
-    <br>
+            <div class="col-md-9">
+
+                <div
+                    class="control-chart wrap-legend"
+                    data-control="chart-bar"
+                    data-height="<?= $byMonthMaxCount ?>"
+                    data-full-width="1">
+                    <ul>
+                        <?php foreach($byMonthDataset as $key => $value): ?>
+                            <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="title-value">
+            <h4><?= e(trans('voilaah.mallstats::lang.titles.nb_unique_customers_per_month', ['year'=> date("Y")] )) ?></h4>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="statlistbox">
+
+                    <br>
+                    <?php foreach($customersByMonthDataset as $key => $value): ?>
+                        <div class=" col-md-6 col-sm-6"><?= $value->monthname . ' ' . $value->year ?></div>
+                        <div class="text-right col-md-6 col-sm-6"><?= $value->data ?></div>
+                        <div class="clearfix"></div>
+                    <?php endforeach; ?>
+                    <br>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div
+                    class="control-chart wrap-legend"
+                    data-control="chart-bar"
+                    data-height="<?= $customersByMonthMaxCount ?>"
+                    data-full-width="1">
+                    <ul>
+                        <?php foreach($customersByMonthDataset as $key => $value): ?>
+                            <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <hr>
+        <br>
 </div>
