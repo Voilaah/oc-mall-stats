@@ -3,8 +3,8 @@
         <li><?= e(trans('voilaah.mallstats::lang.menu.statistics')) ?></li>
     </ul>
 </div>
-
-<?= $this->makePartial('~/plugins/offline/mall/controllers/orders/_orders_scoreboard.htm', ['stats' => $stats, 'money' => $money]); ?>
+<?php $count = $mallstats->count(); ?>
+<?php if ($count > 0): ?>
 
 <?php
     $salesByMonth = $mallstats->salesByMonth();
@@ -19,14 +19,30 @@
     $customersByMonthMaxCount = $customersByMonth['byMonthMaxCount'];
     $customersByMonthDataset = $customersByMonth['dataset'];
 
-
     $avgData = $mallstats->avgData();
-
 ?>
-<br>
-<br>
-<div class="scoreboard">
+
+
+<div class="scoreboard scoreboard--fix-until-toolbar-buttons-are-added">
     <div data-control="toolbar">
+
+        <div class="scoreboard-item title-value">
+            <h4><?= e(trans('offline.mall::lang.common.orders')) ?></h4>
+            <p><?= e($count) ?></p>
+            <p class="description"><?= e(trans('offline.mall::lang.common.since_begin')) ?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?= e(trans('offline.mall::lang.common.weekly')) ?></h4>
+            <p><?= e($stats->perWeekCount()) ?></p>
+            <p class="description"><?= e(trans('offline.mall::lang.common.orders')) ?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?= e(trans('offline.mall::lang.order.total_revenue')) ?></h4>
+            <p><?= e($money->format($stats->grandTotal())) ?></p>
+            <p class="description"><?= e(trans('offline.mall::lang.common.since_begin')) ?></p>
+        </div>
 
         <div class="scoreboard-item title-value">
             <h4><?= e(trans('voilaah.mallstats::lang.titles.sales_average')) ?></h4>
@@ -191,3 +207,4 @@
 <hr>
 <br>
 
+<?php endif; ?>

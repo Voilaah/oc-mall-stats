@@ -14,3 +14,5 @@
     - Adding Unique Customers by month
 1.0.8:
     - Adding orders by month
+1.0.9:
+    - Refactoring existing scoreboard
