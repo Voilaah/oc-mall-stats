@@ -4,7 +4,7 @@
         'description' => 'Provide some basics statistics for October CMS MALL Plugin'
     ],
     'menu' => [
-        'statistics' => 'Analytics',
+        'statistics' => 'Statistics',
     ],
     'titles' => [
         'best_sellers' => 'Best sellers',
