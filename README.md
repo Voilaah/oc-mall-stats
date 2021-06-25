@@ -6,6 +6,7 @@ Provide some basics stats for October CMS MALL Plugin
 
 - best sellers
 - sales by month
+- orders by month
 - total average sales
 - total payee / total registered customers
 - unique customers by month

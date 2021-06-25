@@ -7,17 +7,19 @@ use Config;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Support\Carbon;
-use OFFLINE\Mall\Classes\Stats\OrdersStats;
-use OFFLINE\Mall\Models\Customer;
 use OFFLINE\Mall\Models\Order;
 use OFFLINE\Mall\Models\Product;
+use OFFLINE\Mall\Models\Customer;
 use OFFLINE\Mall\Models\OrderState;
+use OFFLINE\Mall\Classes\Stats\OrdersStats;
+use OFFLINE\Mall\Classes\PaymentState\PaidState;
 
 class MallStats extends OrdersStats
 {
     protected $productsTable;
     protected $ordersTable;
     protected $statesTable;
+    protected $cancelledStateId;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class MallStats extends OrdersStats
         $this->ordersTable      = (new Order())->table;
         $this->statesTable      = (new OrderState())->table;
         $this->customersTable      = (new Customer())->table;
+        $this->cancelledStateId = optional(OrderState::where('flag', OrderState::FLAG_CANCELLED)->first())->id;
     }
 
     public function bestSellers()
@@ -119,6 +122,40 @@ class MallStats extends OrdersStats
             'byMonthMaxCount'   => max(array_column($dataset, 'data')),
             'dataset'           => $dataset
         ];
+    }
+
+    public function salesByMonth(): array
+    {
+        $dataset = DB::table($this->ordersTable)
+                ->whereNull('deleted_at')
+                ->where('payment_state', PaidState::class)
+                ->where('order_state_id', '<>', $this->cancelledStateId)
+                ->select(
+                    DB::raw('year(created_at) as `year`'),
+                    DB::raw('month(created_at) as `month`'),
+                    DB::raw('monthname(created_at) as `monthname`'),
+                    DB::raw('sum(total_pre_payment) as `data`')
+                )
+                ->whereYear("created_at", date("Y") )
+                ->groupBy("year", "month", "monthname" )
+                ->orderBy("year", "ASC")
+                ->orderBy("month", "ASC")
+                ->get()
+                ->toArray();
+        return [
+            'byMonthMaxCount'   => $this->getMaxAmount($dataset, 'data'),
+            'dataset'           => $dataset
+        ];
+    }
+
+    protected function getMaxAmount( $array, $key )
+    {
+        $max = 0;
+        foreach( $array as $k => $v )
+        {
+            $max = max( array( $max, $v->{$key} / 100 ) );
+        }
+        return $max;
     }
 
     public function avgData(): array
