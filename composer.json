@@ -1,0 +1,15 @@
+{
+    "name": "voilaah/mallstats",
+    "description": "Basic statistics for OC Mall Plugin",
+    "type": "october-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chrisvidal",
+            "email": "chris@voilaah.com"
+        }
+    ]
+}

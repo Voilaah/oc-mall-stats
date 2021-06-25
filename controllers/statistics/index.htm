@@ -1,0 +1,27 @@
+<div class="control-breadcrumb">
+    <ul>
+        <li><?= e(trans('voilaah.mallstats::lang.menu.statistics')) ?></li>
+    </ul>
+</div>
+
+<?= $this->makePartial('~/plugins/offline/mall/controllers/orders/_orders_scoreboard.htm', ['stats' => $stats, 'money' => $money]); ?>
+
+<div class="scoreboard statboard m-y">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="statlistbox">
+                    <br>
+                    <strong><?= e(trans('voilaah.mallstats::lang.titles.best_sellers')) ?></strong>
+                    <div class="clearfix"></div>
+                    <br>
+                    <?php foreach($mallstats->bestSellers() as $key => $product): ?>
+                        <div class="col-md-1 col-sm-1"><?= $key+1 ?>.</div>
+                        <div class="col-md-9 col-sm-9"><a href="<?= Backend::url('offline/mall/products/update/') ?>/<?= $product->id ?>"><?= $product->name ?></a></div>
+                        <div class="text-right col-md-2 col-sm-2"><?= $product->sales_count ?></div>
+                        <div class="clearfix"></div>
+                    <?php endforeach; ?>
+                    <br>
+            </div>
+        </div>
+    </div>
+</div>

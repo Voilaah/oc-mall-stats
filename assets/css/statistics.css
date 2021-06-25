@@ -1,0 +1,8 @@
+.statboard .statlistbox {
+    background: #fff;
+    -webkit-box-shadow: 3px 3px 11px 0 rgb(217 217 217);
+    -moz-box-shadow: 3px 3px 11px 0 rgba(217, 217, 217, 1);
+    box-shadow: 3px 3px 11px 0 rgb(217 217 217);
+    margin: 10px 0 20px 0;
+    padding: 0 20px;
+}

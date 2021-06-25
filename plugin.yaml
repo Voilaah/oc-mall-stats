@@ -1,0 +1,6 @@
+plugin:
+    name: 'voilaah.mallstats::lang.plugin.name'
+    description: 'voilaah.mallstats::lang.plugin.description'
+    author: Voilaah
+    icon: oc-icon-bar-chart
+    homepage: ''
