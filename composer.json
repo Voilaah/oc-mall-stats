@@ -1,5 +1,5 @@
 {
-    "name": "voilaah/mallstats",
+    "name": "voilaah/mallstats-plugin",
     "description": "Basic statistics for OC Mall Plugin",
     "type": "october-plugin",
     "require": {
