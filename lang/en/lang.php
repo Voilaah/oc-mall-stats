@@ -11,5 +11,8 @@
         'sales_period_year' => 'Sales by year',
         'sales_current_month' => 'Sales for this month',
         'sales_period_month' => 'Sales by month (for :year)',
+        'sales_average' => 'Average Sales',
+        'nb_customers' => 'Total payee / Total customers',
+        'nb_customers_comment' => 'Customers who made at least one purchase',
     ],
 ];

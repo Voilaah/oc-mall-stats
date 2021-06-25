@@ -7,11 +7,13 @@ use Config;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Support\Carbon;
+use OFFLINE\Mall\Classes\Stats\OrdersStats;
+use OFFLINE\Mall\Models\Customer;
 use OFFLINE\Mall\Models\Order;
 use OFFLINE\Mall\Models\Product;
 use OFFLINE\Mall\Models\OrderState;
 
-class MallStats
+class MallStats extends OrdersStats
 {
     protected $productsTable;
     protected $ordersTable;
@@ -19,9 +21,11 @@ class MallStats
 
     public function __construct()
     {
+        parent::__construct();
         $this->productsTable      = (new Product())->table;
         $this->ordersTable      = (new Order())->table;
         $this->statesTable      = (new OrderState())->table;
+        $this->customersTable      = (new Customer())->table;
     }
 
     public function bestSellers()
@@ -74,23 +78,45 @@ class MallStats
     public function byMonth(): array
     {
         $dataset = DB::table($this->ordersTable)
-                 ->whereNull('deleted_at')
-                 ->select(
-                     DB::raw('year(created_at) as `year`'),
-                     DB::raw('month(created_at) as `month`'),
-                     DB::raw('monthname(created_at) as `monthname`'),
-                     DB::raw('count(id) as `data`')
-                 )
-                 ->whereYear("created_at", date("Y") )
-                 ->groupBy("year", "month", "monthname" )
-                 ->orderBy("year", "ASC")
-                 ->orderBy("month", "ASC")
-                 ->get()
-                 ->toArray();
+                ->whereNull('deleted_at')
+                ->select(
+                    DB::raw('year(created_at) as `year`'),
+                    DB::raw('month(created_at) as `month`'),
+                    DB::raw('monthname(created_at) as `monthname`'),
+                    DB::raw('count(id) as `data`')
+                )
+                ->whereYear("created_at", date("Y") )
+                ->groupBy("year", "month", "monthname" )
+                ->orderBy("year", "ASC")
+                ->orderBy("month", "ASC")
+                ->get()
+                ->toArray();
 
-            return [
-                'byMonthMaxCount'   => max(array_column($dataset, 'data')),
-                'dataset'           => $dataset
-            ];
-        }
+        return [
+            'byMonthMaxCount'   => max(array_column($dataset, 'data')),
+            'dataset'           => $dataset
+        ];
+    }
+
+    public function avgData(): array
+    {
+        $total_customers = DB::table($this->customersTable)
+                    ->whereNull('deleted_at')
+                    ->count();
+
+        $total_paid_customers =  DB::table($this->ordersTable)
+                    ->whereNull('deleted_at')
+                    ->select(
+                        DB::raw('count(DISTINCT customer_id) as `data`')
+                    )
+                    ->get()
+                    ->toArray();
+
+        return [
+            'avg_sales' => round($this->grandTotal() / $this->count(), 2),
+            'total_paid_customers' => $total_paid_customers[0]->data,
+            'total_customers' => $total_customers,
+        ];
+
+    }
 }

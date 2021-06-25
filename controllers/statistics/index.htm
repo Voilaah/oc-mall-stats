@@ -10,7 +10,28 @@
     $byMonth = $mallstats->byMonth();
     $byMonthMaxCount = $byMonth['byMonthMaxCount'];
     $byMonthDataset = $byMonth['dataset'];
+
+    $avgData = $mallstats->avgData();
 ?>
+<br>
+<br>
+<div class="scoreboard">
+    <div data-control="toolbar">
+
+        <div class="scoreboard-item title-value">
+            <h4><?= e(trans('voilaah.mallstats::lang.titles.sales_average')) ?></h4>
+            <p><?= e($money->format($avgData['avg_sales'])) ?></p>
+            <p class="description"><?= e(trans('offline.mall::lang.common.since_begin')) ?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?= e(trans('voilaah.mallstats::lang.titles.nb_customers')) ?></h4>
+            <p><?= $avgData['total_paid_customers'] ?> / <?= $avgData['total_customers'] ?></p>
+            <p class="description"><?= e(trans('voilaah.mallstats::lang.titles.nb_customers_comment')) ?></p>
+        </div>
+    </div>
+
+</div>
 
 <div class="scoreboard statboard m-y">
     <br>
