@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Event;
 
 class Plugin extends PluginBase
 {
+    public $require = ['OFFLINE.Mall'];
+
     public function boot()
     {
         $this->registerExtensions();
