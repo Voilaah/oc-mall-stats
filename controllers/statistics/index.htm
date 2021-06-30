@@ -64,21 +64,33 @@
     <div class="row">
         <div class="col-md-4">
             <div class="statlistbox">
-                    <br>
-                    <strong><?= e(trans('voilaah.mallstats::lang.titles.best_sellers')) ?></strong>
+                <br>
+                <strong><?= e(trans('voilaah.mallstats::lang.titles.best_sellers')) ?></strong>
+                <div class="clearfix"></div>
+                <br>
+                <?php foreach($mallstats->bestSellers() as $key => $product): ?>
+                    <div class="col-md-1 col-sm-1"><?= $key+1 ?>.</div>
+                    <div class="col-md-9 col-sm-9"><a href="<?= Backend::url('offline/mall/products/update/') ?>/<?= $product->id ?>"><?= $product->name ?></a></div>
+                    <div class="text-right col-md-2 col-sm-2"><?= $product->sales_count ?></div>
                     <div class="clearfix"></div>
-                    <br>
-                    <?php foreach($mallstats->bestSellers() as $key => $product): ?>
-                        <div class="col-md-1 col-sm-1"><?= $key+1 ?>.</div>
-                        <div class="col-md-9 col-sm-9"><a href="<?= Backend::url('offline/mall/products/update/') ?>/<?= $product->id ?>"><?= $product->name ?></a></div>
-                        <div class="text-right col-md-2 col-sm-2"><?= $product->sales_count ?></div>
-                        <div class="clearfix"></div>
-                    <?php endforeach; ?>
-                    <br>
+                <?php endforeach; ?>
+                <br>
             </div>
         </div>
         <div class="col-md-4">
-
+            <div class="statlistbox">
+                <br>
+                <strong><?= e(trans('voilaah.mallstats::lang.titles.low_sellers')) ?></strong>
+                <div class="clearfix"></div>
+                <br>
+                <?php foreach($mallstats->lowSellers() as $key => $product): ?>
+                    <div class="col-md-1 col-sm-1"><?= $key+1 ?>.</div>
+                    <div class="col-md-9 col-sm-9"><a href="<?= Backend::url('offline/mall/products/update/') ?>/<?= $product->id ?>"><?= $product->name ?></a></div>
+                    <div class="text-right col-md-2 col-sm-2"><?= $product->sales_count ?></div>
+                    <div class="clearfix"></div>
+                <?php endforeach; ?>
+                <br>
+            </div>
         </div>
         <div class="col-md-4">
         </div>
@@ -108,13 +120,13 @@
 
     <div class="col-md-9">
         <div
-            class="control-chart wrap-legend"
+            class="m-t control-chart wrap-legend"
             data-control="chart-bar"
-            data-height="<?= $salesByMonthMaxCount ?>"
-            data-full-width="1">
+            data-height="100"
+            data-full-width="0">
             <ul>
                 <?php foreach($salesByMonthDataset as $key => $value): ?>
-                    <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>
+                    <li><?= $value->monthname . ' ' . $value->year ?> <span><?= e($money->format($value->data)) ?></span></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -151,10 +163,10 @@
     <div class="col-md-9">
 
         <div
-            class="control-chart wrap-legend"
+            class="m-t control-chart wrap-legend"
             data-control="chart-bar"
-            data-height="<?= $ordersByMonthMaxCount ?>"
-            data-full-width="1">
+            data-height="100"
+            data-full-width="0">
             <ul>
                 <?php foreach($ordersByMonthDataset as $key => $value): ?>
                     <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>
@@ -190,10 +202,10 @@
     <div class="col-md-9">
 
         <div
-            class="control-chart wrap-legend"
+            class="m-t control-chart wrap-legend"
             data-control="chart-bar"
-            data-height="<?= $customersByMonthMaxCount ?>"
-            data-full-width="1">
+            data-height="100"
+            data-full-width="0">
             <ul>
                 <?php foreach($customersByMonthDataset as $key => $value): ?>
                     <li><?= $value->monthname . ' ' . $value->year ?> <span><?= $value->data ?></span></li>

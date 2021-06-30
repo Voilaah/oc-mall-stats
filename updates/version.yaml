@@ -16,3 +16,5 @@
     - Adding orders by month
 1.0.9:
     - Refactoring existing scoreboard
+1.0.10:
+    - Adding low sellers; few style enhancements for the bar chart

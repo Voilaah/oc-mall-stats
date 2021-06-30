@@ -48,6 +48,23 @@ class MallStats extends OrdersStats
         return $bestSellers;
     }
 
+    public function lowSellers()
+    {
+        $lowSellers = DB::table($this->productsTable)
+                    ->select('id', 'name', 'sales_count')
+                    ->whereNull('deleted_at')
+                    ->orderBy('sales_count', 'ASC')
+                    ->limit(10)
+                    ->get()
+                    ;
+
+        if ( ! $lowSellers) {
+            return [];
+        }
+
+        return $lowSellers;
+    }
+
     public function currentMonthDataSet(): string
     {
         $timeZone = Config::get('backend.timezone'); // October v.2.x
