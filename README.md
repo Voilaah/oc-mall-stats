@@ -1,6 +1,12 @@
 # oc-mall-stats
-Provide some basics stats for October CMS MALL Plugin
+Provide some basics extensions (stats, exports) for October CMS MALL Plugin
 
+
+## Available exports
+
+- customers
+- orders
+- sales
 
 ## Available statistics
 

@@ -5,6 +5,23 @@
     ],
     'menu' => [
         'statistics' => 'Statistics',
+        'exports' => 'Available Exports',
+        'export' => 'Exports',
+    ],
+    'export' => [
+        'export_customer' => "Export Customers",
+        'export_orders' => "Export Orders",
+        'export_sales' => "Export Sales",
+        'customer_id' => "# Customer",
+        'product_id' => "# Product",
+        'product_name' => "Product name",
+        'product_categories' => "Product categories",
+        'quantity' => "Quantity",
+        'total' => "Total",
+        'items' => "Item(s) [id-name-quantity]",
+        'shipping' => "Shipping",
+        'discounts_applied' => "Discount(s) applied",
+        'total_discounts' => "Total discount",
     ],
     'titles' => [
         'best_sellers' => 'Best sellers',

@@ -1,0 +1,41 @@
+columns:
+    order_number:
+        label: 'offline.mall::lang.order.order_number'
+        type: number
+    customer_id:
+        label: 'voilaah.mallstats::lang.export.customer_id'
+        type: text
+    customer_name:
+        label: 'offline.mall::lang.order.customer'
+        type: text
+    customer_email:
+        label: 'offline.mall::lang.order.email'
+        type: text
+    items:
+        label: 'voilaah.mallstats::lang.export.items'
+        type: text
+    order_state_name:
+        label: 'offline.mall::lang.order.status'
+        type: text
+    payment_state_name:
+        label: 'offline.mall::lang.order.payment_status'
+        type: text
+    shipped_status:
+        label: 'offline.mall::lang.order.shipped'
+        type: text
+    total_shipping_post_taxes:
+        label: 'offline.mall::lang.order.shipping_fees'
+        type: text
+        sortable: true
+    total_post_taxes:
+        label: 'offline.mall::lang.order.grand_total'
+        type: text
+    discounts_savings:
+        label: 'voilaah.mallstats::lang.export.discounts_applied'
+        type: text
+    total_discounts:
+        label: 'voilaah.mallstats::lang.export.total_discounts'
+        type: text
+    created_at:
+        label: 'offline.mall::lang.common.created_at'
+        type: datetime

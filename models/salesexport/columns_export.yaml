@@ -1,0 +1,21 @@
+columns:
+    order_number:
+        label: 'offline.mall::lang.order.order_number'
+        type: text
+    product_id:
+        label: 'voilaah.mallstats::lang.export.product_id'
+        type: text
+    categories:
+        label: 'voilaah.mallstats::lang.export.product_categories'
+        type: text
+    name:
+        label: 'voilaah.mallstats::lang.export.product_name'
+        type: text
+    quantity:
+        label: 'voilaah.mallstats::lang.export.quantity'
+        type: text
+    total_post_taxes:
+        label: 'voilaah.mallstats::lang.export.total'
+    created_at:
+        label: 'offline.mall::lang.common.created_at'
+        type: datetime

@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: 'voilaah.mallstats::lang.export.customer_id'
+        type: text
+    customer_name:
+        label: 'offline.mall::lang.order.customer'
+        type: text
+    customer_email:
+        label: 'offline.mall::lang.order.email'
+        type: text

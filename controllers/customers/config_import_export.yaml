@@ -1,0 +1,10 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    title: Export Mall customers
+    modelClass: Voilaah\MallStats\Models\CustomerExport
+    list: $/voilaah/mallstats/models/customerexport/columns_export.yaml
+    redirect: voilaah/mallstats/exports
+    fileName: customers.csv

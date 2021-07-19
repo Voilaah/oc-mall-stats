@@ -18,3 +18,5 @@
     - Refactoring existing scoreboard
 1.0.10:
     - Adding low sellers; few style enhancements for the bar chart
+1.0.11:
+    - Adding export features for customers, orders and sales

@@ -1,0 +1,24 @@
+<div class="control-breadcrumb">
+    <ul>
+        <li><?= e(trans('voilaah.mallstats::lang.menu.exports')) ?></li>
+    </ul>
+</div>
+
+<div data-control="toolbar">
+    <a
+        href="<?= Backend::url('voilaah/mallstats/customers/export') ?>"
+        class="btn btn-default oc-icon-download">
+        <?= e(trans('voilaah.mallstats::lang.export.export_customer')) ?>
+    </a>
+    <a
+        href="<?= Backend::url('voilaah/mallstats/orders/export') ?>"
+        class="btn btn-default oc-icon-download">
+        <?= e(trans('voilaah.mallstats::lang.export.export_orders')) ?>
+    </a>
+    <a
+        href="<?= Backend::url('voilaah/mallstats/sales/export') ?>"
+        class="btn btn-default oc-icon-download">
+        <?= e(trans('voilaah.mallstats::lang.export.export_sales')) ?>
+    </a>
+
+</div>

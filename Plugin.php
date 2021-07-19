@@ -37,6 +37,11 @@ class Plugin extends PluginBase
                     'url'         => \Backend::url('voilaah/mallstats/statistics'),
                     'icon'        => 'icon-area-chart',
                 ],
+                'mall-exports' => [
+                    'label'       => 'voilaah.mallstats::lang.menu.export',
+                    'url'         => \Backend::url('voilaah/mallstats/exports'),
+                    'icon'        => 'icon-download',
+                ],
             ]);
         }, 5);
     }
