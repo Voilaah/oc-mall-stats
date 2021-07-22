@@ -36,11 +36,19 @@ class Plugin extends PluginBase
                     'label'       => 'voilaah.mallstats::lang.menu.statistics',
                     'url'         => \Backend::url('voilaah/mallstats/statistics'),
                     'icon'        => 'icon-area-chart',
+                    'order'       => 900,
+                ],
+                'mall-imports' => [
+                    'label'       => 'voilaah.mallstats::lang.menu.import',
+                    'url'         => \Backend::url('voilaah/mallstats/imports'),
+                    'icon'        => 'icon-upload',
+                    'order'       => 901,
                 ],
                 'mall-exports' => [
                     'label'       => 'voilaah.mallstats::lang.menu.export',
                     'url'         => \Backend::url('voilaah/mallstats/exports'),
                     'icon'        => 'icon-download',
+                    'order'       => 902,
                 ],
             ]);
         }, 5);

@@ -111,7 +111,7 @@ class OrderExport extends \Backend\Models\ExportModel
     public function getDiscountsSavingsAttribute() {
         $results = [];
         foreach($this->discounts as $key => $discount) {
-            $results[$discount['discount']['name']] =
+            $results[$discount['discount']['name']] = $discount['discount']['name'] . ': ' .
                 $discount['savings_formatted']
             ;
         }

@@ -1,0 +1,19 @@
+<div class="control-breadcrumb">
+    <ul>
+        <li><?= e(trans('voilaah.mallstats::lang.menu.imports')) ?></li>
+    </ul>
+</div>
+
+<div data-control="toolbar">
+    <a
+        href="<?= Backend::url('voilaah/mallstats/customers/import') ?>"
+        class="btn btn-default oc-icon-upload disabled">
+        <?= e(trans('voilaah.mallstats::lang.import.import_customers')) ?>
+    </a>
+    <a
+        href="<?= Backend::url('voilaah/mallstats/products/import') ?>"
+        class="btn btn-default oc-icon-upload">
+        <?= e(trans('voilaah.mallstats::lang.import.import_products')) ?>
+    </a>
+
+</div>

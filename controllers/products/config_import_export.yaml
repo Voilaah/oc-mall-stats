@@ -1,0 +1,17 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: Import Products
+    modelClass: Voilaah\MallStats\Models\ProductImport
+    list: $/voilaah/mallstats/models/productimport/columns.yaml
+    form: $/voilaah/mallstats/models/productimport/fields.yaml
+    redirect: offline/mall/products
+
+export:
+    title: Export Products
+    modelClass: Voilaah\MallStats\Models\ProductExport
+    list: $/voilaah/mallstats/models/productexport/columns.yaml
+    redirect: offline/mall/products
+    fileName: products.csv

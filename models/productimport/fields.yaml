@@ -1,0 +1,29 @@
+
+fields:
+    cleanup_existing:
+        label: voilaah.mallstats::lang.import.import_products_cleanup_options
+        comment: voilaah.mallstats::lang.import.import_products_cleanup_options_comment
+        type: checkbox
+        default: false
+        span: auto
+    auto_create_categories:
+        label: voilaah.mallstats::lang.import.import_products_auto_create_categories_label
+        comment: voilaah.mallstats::lang.import.import_products_auto_create_categories_comment
+        type: checkbox
+        default: true
+        span: auto
+    auto_publish_products:
+        label: voilaah.mallstats::lang.import.import_products_auto_published_label
+        type: checkbox
+        default: true
+        span: auto
+    categories:
+        label: voilaah.mallstats::lang.import.import_products_categories_label
+        commentAbove: voilaah.mallstats::lang.import.import_products_categories_comment
+        type: checkboxlist
+        span: right
+        cssClass: field-indent
+        trigger:
+            action: hide
+            field: auto_create_categories
+            condition: checked

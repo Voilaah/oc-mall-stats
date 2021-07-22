@@ -1,0 +1,38 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: offline.mall::lang.common.id
+    user_defined_id:
+        label: offline.mall::lang.product.user_defined_id
+    name:
+        label: offline.mall::lang.product.name
+    slug:
+        label: offline.mall::lang.common.slug
+    categories:
+        label: offline.mall::lang.common.categories
+    description_short:
+        label: offline.mall::lang.product.description_short
+    description:
+        label: offline.mall::lang.product.description
+    is_virtual:
+        label: offline.mall::lang.product.is_virtual
+    stock:
+        label: offline.mall::lang.product.stock
+    price:
+        label: offline.mall::lang.product.price
+    allow_out_of_stock_purchases:
+        label: offline.mall::lang.product.allow_out_of_stock_purchases
+    weight:
+        label: offline.mall::lang.product.weight
+    height:
+        label: offline.mall::lang.product.height
+    width:
+        label: offline.mall::lang.product.width
+    length:
+        label: offline.mall::lang.product.length
+    # image:
+    #     label: voilaah.mallstats::lang.import.import_products_labels.image
+

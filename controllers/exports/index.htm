@@ -6,9 +6,14 @@
 
 <div data-control="toolbar">
     <a
+        href="<?= Backend::url('voilaah/mallstats/products/export') ?>"
+        class="btn btn-default oc-icon-download">
+        <?= e(trans('voilaah.mallstats::lang.export.export_products')) ?>
+    </a>
+    <a
         href="<?= Backend::url('voilaah/mallstats/customers/export') ?>"
         class="btn btn-default oc-icon-download">
-        <?= e(trans('voilaah.mallstats::lang.export.export_customer')) ?>
+        <?= e(trans('voilaah.mallstats::lang.export.export_customers')) ?>
     </a>
     <a
         href="<?= Backend::url('voilaah/mallstats/orders/export') ?>"
