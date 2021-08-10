@@ -24,3 +24,5 @@
     - Adding discount name in the Orders export
 1.0.13:
     - Added products import feature
+1.0.14:
+    - Added Date selection for Sales Export

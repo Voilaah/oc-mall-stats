@@ -31,19 +31,29 @@ class SalesExport extends \Backend\Models\ExportModel
         'total_post_taxes',
         'categories',
     ];
-
+    public $fillable =
+     [
+        'created_at_from',
+        'created_at_to',
+    ];
 
     public function exportData($columns, $sessionKey = null)
     {
-        $sales = self::make()->with([
-                        'order',
-                        'product.categories',
-                    ])
-            ->orderBy('created_at', 'DESC')
-            ->get()
-            ->toArray();
+        $query = self::query();
+        if ($this->created_at_from) {
+            $query->whereDate('created_at', '>=', $this->created_at_from );
+        }
+        if ($this->created_at_to) {
+            $query->whereDate('created_at', '<=', $this->created_at_to );
+        }
+        $query->with([
+                'order',
+                'product.categories',
+            ])
+            ->orderBy('created_at', 'DESC');
 
-        return $sales;
+        $sales = $query->get();
+        return $sales->toArray();
     }
 
     public function getOrderNumberAttribute() {
