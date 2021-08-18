@@ -1,0 +1,15 @@
+fields:
+    created_at_from:
+        label: From date
+        comment: Select a date if relevant
+        span: auto
+        type: datepicker
+        mode: datetime
+        format: d/m/Y
+    created_at_to:
+        label: To date
+        comment: Select a date if relevant
+        span: auto
+        type: datepicker
+        mode: datetime
+        format: d/m/Y

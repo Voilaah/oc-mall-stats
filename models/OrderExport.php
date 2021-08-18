@@ -43,19 +43,31 @@ class OrderExport extends \Backend\Models\ExportModel
         'total_discounts',
         'items',
     ];
+    public $fillable =
+     [
+        'created_at_from',
+        'created_at_to',
+    ];
 
 
     public function exportData($columns, $sessionKey = null)
     {
-        $orders = self::make()->with([
-                        'customer',
-                        'products',
-                        'products.product',
-                    ])
-            ->orderBy('created_at', 'DESC')
-            ->get()
-            ->toArray();
-        return $orders;
+        $query = self::query();
+        if ($this->created_at_from) {
+            $query->whereDate('created_at', '>=', $this->created_at_from );
+        }
+        if ($this->created_at_to) {
+            $query->whereDate('created_at', '<=', $this->created_at_to );
+        }
+        $query->with([
+                'customer',
+                'products',
+                'products.product',
+            ])
+            ->orderBy('created_at', 'DESC');
+
+        $orders = $query->get();
+        return $orders->toArray();
     }
 
     public function getItemsAttribute()

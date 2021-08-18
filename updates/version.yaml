@@ -26,3 +26,5 @@
     - Added products import feature
 1.0.14:
     - Added Date selection for Sales Export
+1.0.15:
+    - Added Dates selection for filtering Orders Export

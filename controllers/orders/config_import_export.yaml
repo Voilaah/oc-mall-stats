@@ -5,6 +5,7 @@
 export:
     title: Export Mall orders
     modelClass: Voilaah\MallStats\Models\OrderExport
+    form: $/voilaah/mallstats/models/orderexport/fields.yaml
     list: $/voilaah/mallstats/models/orderexport/columns_export.yaml
     redirect: voilaah/mallstats/exports
     fileName: orders.csv
