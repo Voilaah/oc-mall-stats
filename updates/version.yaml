@@ -1,32 +1,34 @@
 1.0.1:
-  - Initialize plugin.
+  - "Initialize plugin."
 1.0.2:
-  - Adding Best Sellers Stats.
+  - "Adding Best Sellers Stats."
 1.0.3:
-  - Adding Sales by month.
+  - "Adding Sales by month."
 1.0.4:
-  - Update composer name to make the plugin public
+  - "Update composer name to make the plugin public"
 1.0.5:
-  - Update composer name to make the plugin public
+  - "Update composer name to make the plugin public"
 1.0.6:
-  - Adding average sales, total payee
+  - "Adding average sales, total payee"
 1.0.7:
-  - Adding Unique Customers by month
+  - "Adding Unique Customers by month"
 1.0.8:
-  - Adding orders by month
+  - "Adding orders by month"
 1.0.9:
-  - Refactoring existing scoreboard
+  - "Refactoring existing scoreboard"
 1.0.10:
-  - Adding low sellers; few style enhancements for the bar chart
+  - "Adding low sellers; few style enhancements for the bar chart"
 1.0.11:
-  - Adding export features for customers, orders and sales
+  - "Adding export features for customers, orders and sales"
 1.0.12:
-  - Adding discount name in the Orders export
+  - "Adding discount name in the Orders export"
 1.0.13:
-  - Added products import feature
+  - "Added products import feature"
 1.0.14:
-  - Added Date selection for Sales Export
+  - "Added Date selection for Sales Export"
 1.0.15:
-  - Added Dates selection for filtering Orders Export
+  - "Added Dates selection for filtering Orders Export"
 1.0.20:
-  - Bump to OFFLINE MALL v2.0
+  - "Bump to OFFLINE MALL v2.0"
+1.0.21:
+  - "Add permissions"

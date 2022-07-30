@@ -3,6 +3,11 @@
         'name' => 'MallStats',
         'description' => 'Provide some basics statistics for October CMS MALL Plugin'
     ],
+    'permissions' => [
+        'view_stats' => 'Access to the statistics page',
+        'import' => 'Can import Customers / Products',
+        'export' => 'Can export Customers / Products / Orders / Sales',
+    ],
     'menu' => [
         'statistics' => 'Statistics',
         'exports' => 'Available Exports',

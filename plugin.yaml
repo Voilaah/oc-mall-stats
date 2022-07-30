@@ -1,6 +1,16 @@
 plugin:
-    name: 'voilaah.mallstats::lang.plugin.name'
-    description: 'voilaah.mallstats::lang.plugin.description'
-    author: Voilaah
-    icon: oc-icon-bar-chart
-    homepage: ''
+  name: "voilaah.mallstats::lang.plugin.name"
+  description: "voilaah.mallstats::lang.plugin.description"
+  author: Voilaah
+  icon: oc-icon-bar-chart
+  homepage: ""
+permissions:
+  voilaah.mallstats.view_stats:
+    tab: "voilaah.mallstats::lang.plugin.name"
+    label: "voilaah.mallstats::lang.permissions.view_stats"
+  voilaah.mallstats.import:
+    tab: "voilaah.mallstats::lang.plugin.name"
+    label: "voilaah.mallstats::lang.permissions.import"
+  voilaah.mallstats.export:
+    tab: "voilaah.mallstats::lang.plugin.name"
+    label: "voilaah.mallstats::lang.permissions.export"
