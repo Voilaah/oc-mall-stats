@@ -4,7 +4,7 @@
     "type": "october-plugin",
     "require": {
         "composer/installers": "~1.0",
-        "offline/oc-mall-plugin": "^1.1.0"
+        "offline/oc-mall-plugin": "^2.0"
     },
     "license": "MIT",
     "authors": [
